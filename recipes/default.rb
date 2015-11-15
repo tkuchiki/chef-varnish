@@ -9,3 +9,7 @@ yum_package "varnish" do
   action      :install
   flush_cache node[:varnish][:flush_cache] unless node[:varnish][:flush_cache].nil?
 end
+
+service "varnish" do
+  action   [ :enable, :start ]
+end
